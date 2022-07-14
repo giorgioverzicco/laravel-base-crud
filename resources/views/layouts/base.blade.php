@@ -8,7 +8,7 @@
         <title>
             @yield('page-title')
         </title>
-        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" href="{{asset('css/app.css')}}">
     </head>
 
     <body>
