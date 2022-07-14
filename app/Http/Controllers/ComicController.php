@@ -33,20 +33,20 @@ class ComicController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\View\View
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
         $comic = Comic::create($request->all());
 
-        return view('comics.show', compact('comic'));
+        return redirect()->route('comics.show', $comic->id);
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Comic  $comic
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View
      */
     public function show(Comic $comic)
     {
