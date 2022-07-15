@@ -9,14 +9,24 @@
         <form action="{{ route('comics.store') }}" method="POST">
             @csrf
 
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    @foreach($errors->all() as $error)
+                        <li>
+                            {{ $error }}
+                        </li>
+                    @endforeach
+                </div>
+            @endif
+
             <div class="mb-3">
                 <label for="comic-title" class="form-label">Titolo</label>
-                <input type="text" class="form-control" id="comic-title" name="title">
+                <input type="text" class="form-control" id="comic-title" name="title" required>
             </div>
 
             <div class="mb-3">
                 <label for="comic-description" class="form-label">Descrizione</label>
-                <textarea class="form-control" id="comic-description" name="description" rows="4"></textarea>
+                <textarea class="form-control" id="comic-description" name="description" rows="4" required></textarea>
             </div>
 
             <div class="mb-3">
@@ -26,17 +36,17 @@
 
             <div class="mb-3">
                 <label for="comic-price" class="form-label">Prezzo</label>
-                <input type="number" class="form-control" id="comic-price" name="price" min="0" max="255" value="0">
+                <input type="number" class="form-control" id="comic-price" name="price" min="0" max="255" value="0" required>
             </div>
 
             <div class="mb-3">
                 <label for="comic-series" class="form-label">Serie</label>
-                <input type="text" class="form-control" id="comic-series" name="series">
+                <input type="text" class="form-control" id="comic-series" name="series" required>
             </div>
 
             <div class="mb-3">
                 <label for="comic-sale-date" class="form-label">Data di Vendita</label>
-                <input type="date" class="form-control" id="comic-sale-date" name="sale_date">
+                <input type="date" class="form-control" id="comic-sale-date" name="sale_date" required>
             </div>
 
             <div class="mb-3">
